@@ -1,0 +1,24 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+  color: #f0f0f0;
+  font-size: 1.8rem;
+  background-color: #18191b;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 25px 25px 25px;
+  }
+}
