@@ -1,7 +1,15 @@
 import './home.scss'
+import HomeItem from '../../components/HomeItem'
 
 function Home() {
-  return <h2>Home</h2>
+  return (
+    <section className="home">
+      <div className="home__wrapper">
+        <HomeItem />
+      </div>
+      {/* <GenresList /> */}
+    </section>
+  )
 }
 
 export default Home

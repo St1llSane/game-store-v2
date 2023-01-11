@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom'
+import './styles/reset.scss'
 import './app.scss'
 import Header from './components/Header'
 import Home from './pages/Home'
@@ -8,9 +9,9 @@ function App() {
     <main className="app">
       <div className="app__wrapper">
         <Header />
-        {/* <Routes>
+        <Routes>
           <Route path="/" element={<Home />} />
-        </Routes> */}
+        </Routes>
       </div>
     </main>
   )
