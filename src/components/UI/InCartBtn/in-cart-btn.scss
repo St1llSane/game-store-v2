@@ -1,0 +1,28 @@
+@import '../../../styles/vars.scss';
+
+.in-cart-btn {
+	color: $c-white;
+  font-size: $f-def;
+  font-weight: 600;
+  padding: 0 12px;
+  border-radius: $b-radius-def;
+  display: flex;
+  align-items: center;
+  height: 3.5rem;
+  background: $c-blue-gradient;
+  box-shadow: 0 1px 10px $c-blue;
+  transition: box-shadow 0.1s ease;
+
+  &:hover {
+    box-shadow: 0 1px 15px #516ada;
+  }
+
+  // &Cart {
+  //   background: linear-gradient(45deg, #1db83f, #12a131);
+  //   box-shadow: 0 1px 10px #1bb33c;
+
+  //   &:hover {
+  //     box-shadow: 0 1px 15px #26c949;
+  //   }
+  // }
+}

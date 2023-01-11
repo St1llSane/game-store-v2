@@ -1,7 +1,7 @@
-import './home-item.scss'
 import { BiSearchAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
-// import InCartBtn from '../UI/InCartBtn'
+import InCartBtn from '../UI/InCartBtn/InCartBtn'
+import './home-item.scss'
 
 function HomeItem() {
   return (
@@ -19,7 +19,7 @@ function HomeItem() {
         </ul>
         <div className="home-item__content-buy">
           <span>2000 руб.</span>
-          {/* <InCartBtn /> */}
+					<InCartBtn />
         </div>
       </div>
     </div>

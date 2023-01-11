@@ -1,16 +1,16 @@
 @import '../../styles/vars.scss';
 
 .home-item {
-  background-color: #232527;
-  border-radius: 20px;
   border: 1px solid #202124;
+  border-radius: $b-radius-def;
+  background-color: $c-medium-blue;
   box-shadow: 0 3px 17px #222425;
   position: relative;
 
   &__img {
     width: 100%;
     display: block;
-    border-radius: 20px 20px 0 0;
+    border-radius: $b-radius-def $b-radius-def 0 0;
     @extend %gameImgHover;
 
     img {
@@ -41,7 +41,7 @@
       li {
         font-size: 0.9rem;
         padding: 0.25rem 0.5rem;
-        background-color: #35383a;
+        background-color: $c-light-grey;
         border-radius: 10px;
         transition: background-color 0.1s ease;
 
@@ -58,12 +58,12 @@
       margin-top: auto;
 
       span {
-        color: #18191b;
+        color: $c-dark-blue;
         font-weight: 600;
-        height: 1.7rem;
+        height: 2.4rem;
         background-color: #fff;
-        padding: 0 0.7rem;
-        border-radius: 20px;
+        padding: 0 6px;
+        border-radius: $b-radius-def;
         display: flex;
         align-items: center;
       }
