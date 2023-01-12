@@ -1,8 +1,9 @@
-import { Link, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { RiShoppingCartLine } from 'react-icons/ri'
 import { SlWallet } from 'react-icons/sl'
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
-import SearchInput from '../UI/component/SearchInput'
+import SearchInput from '../UI/SearchInput/SearchInput'
+import CartPreview from '../UI/CartPreview'
 import './header.scss'
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
           <button className="header__right-cart_toggle">
             <BsEyeSlashFill />
           </button>
-          {/* <CartPreview/> */}
+          <CartPreview />
         </div>
         <button className="header__right-money">
           <SlWallet />

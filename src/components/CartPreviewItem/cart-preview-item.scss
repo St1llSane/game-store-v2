@@ -1,0 +1,66 @@
+@import '../../styles/vars.scss';
+
+.cart-preview-item {
+  width: 100%;
+  min-height: 110px;
+  max-height: 110px;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+
+  img {
+    width: 290px;
+    height: 110px;
+    object-fit: cover;
+    object-position: 0 50%;
+    scale: 1.15;
+  }
+
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 5px 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    button {
+      line-height: 0;
+      rotate: 45deg;
+
+      svg {
+        color: $c-white;
+        font-size: 3rem;
+        transition: color 0.1s ease;
+      }
+
+      &:hover svg {
+        color: $c-light-orange;
+      }
+    }
+  }
+
+  &__info {
+    h6 {
+      font-size: $f-big;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    span {
+      color: $c-medium-blue;
+      font-size: $f-small;
+      font-weight: 600;
+      padding: 1px 5px;
+      background-color: $c-white;
+      border-radius: $b-radius-small;
+      display: inline-block;
+      margin-bottom: 3px;
+    }
+  }
+}
