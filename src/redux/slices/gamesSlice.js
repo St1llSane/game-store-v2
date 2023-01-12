@@ -20,9 +20,9 @@ const gamesSlice = createSlice({
   name: 'games',
   initialState,
   reducers: {
-    setGames: (state, action) => {
-      state.games = action.payload
-    },
+    // setGames: (state, action) => {
+    //   state.games = action.payload
+    // },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchGames.pending, (state) => {
@@ -39,6 +39,8 @@ const gamesSlice = createSlice({
     })
   },
 })
+
+export const gamesSelector = (state) => state.gamesSlice
 
 export const { setGames } = gamesSlice.actions
 

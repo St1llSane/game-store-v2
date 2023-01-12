@@ -1,21 +1,33 @@
-import { useState, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import gamesSlice from '../../redux/slices/gamesSlice'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchGames, gamesSelector } from '../../redux/slices/gamesSlice'
 import './home.scss'
+import HomeItemSkeleton from '../../components/HomeItem/HomeItemSkeleton'
 import HomeItem from '../../components/HomeItem'
 
 function Home() {
   const dispatch = useDispatch()
 
-  // useEffect(() => {
-  //   dispatch(gamesSlice())
-  // }, [])
+  const { games, status } = useSelector(gamesSelector)
+
+  useEffect(() => {
+    dispatch(fetchGames())
+  }, [])
+
+  const gamesSkeleton = [...new Array(10).keys()].map((key) => (
+    <HomeItemSkeleton key={key} />
+  ))
+  const renderGames = games.map((game) => <HomeItem {...game} key={game.id} />)
 
   return (
     <section className="home">
-      <div className="home__wrapper">
-        <HomeItem />
-      </div>
+      {status === 'unsuccess' ? (
+        <h2>Ошибка при загрузке игр</h2>
+      ) : status === 'loading' ? (
+        <div className="home__wrapper">{gamesSkeleton}</div>
+      ) : (
+        <div className="home__wrapper">{renderGames}</div>
+      )}     
       {/* <GenresList /> */}
     </section>
   )
