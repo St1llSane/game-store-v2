@@ -1,20 +1,15 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import gamesSlice from '../../redux/slices/gamesSlice'
 import './home.scss'
 import HomeItem from '../../components/HomeItem'
 
 function Home() {
-  const [games, setGames] = useState([])
+  const dispatch = useDispatch()
 
-  useEffect(() => {
-    async function fetchingGames() {
-      const res = await axios.get(
-        'https://639df5493542a2613053e993.mockapi.io/games'
-      )
-      setGames(res.data)
-    }
-    fetchingGames()
-  }, [])
+  // useEffect(() => {
+  //   dispatch(gamesSlice())
+  // }, [])
 
   return (
     <section className="home">

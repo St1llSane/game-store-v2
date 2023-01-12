@@ -6,14 +6,14 @@ import Home from './pages/Home'
 
 function App() {
   return (
-    <main className="app">
+    <div className="app">
       <div className="app__wrapper">
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
       </div>
-    </main>
+    </div>
   )
 }
 
