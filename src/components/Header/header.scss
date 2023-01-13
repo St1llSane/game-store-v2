@@ -8,13 +8,13 @@
   margin-bottom: 40px;
 
   &__logo {
-    color: #f0f0f0;
+    color: $c-white;
     font-size: 3.6rem;
     font-weight: 700;
     transition: color 0.1s ease;
 
     &:hover {
-      color: #e77f6c;
+      color: $c-light-orange;
     }
   }
 
@@ -24,7 +24,7 @@
     column-gap: 46px;
 
     &-cart {
-      font-size: 2rem;
+      font-size: $f-medium;
       position: relative;
 
       &--disabled {
@@ -38,7 +38,7 @@
         transition: color 0.1s ease;
 
         &:hover {
-          color: #e77f6c;
+          color: $c-light-orange;
         }
 
         span {
@@ -51,7 +51,7 @@
           justify-content: center;
           align-items: center;
           color: #fff;
-          font-size: 1.6rem;
+          font-size: $f-small;
           background-color: $c-orange;
           border-radius: $b-radius-big;
           z-index: 10;
@@ -63,7 +63,7 @@
         height: 20px;
         position: absolute;
         right: -21px;
-        bottom: -10px;
+        bottom: -11px;
       }
     }
 
@@ -78,7 +78,7 @@
       }
 
       svg {
-        font-size: 2rem;
+        font-size: $f-medium;
         margin-bottom: 4px;
       }
     }

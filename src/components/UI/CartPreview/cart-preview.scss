@@ -12,12 +12,15 @@
   background-color: $c-light-grey;
   border-radius: $b-radius-def;
   box-shadow: 0 3px 17px #222425;
-  // visibility: visible;
-  // opacity: 1;
   visibility: hidden;
   opacity: 0;
   z-index: 100;
   transition: visibility 0.2s ease, opacity 0.2s ease;
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
 
   &::before {
     position: absolute;
@@ -32,44 +35,39 @@
     rotate: 45deg;
   }
 
-  &--active {
-    visibility: visible;
-    opacity: 1;
-  }
-
   &__list {
-		display: flex;
+    display: flex;
     flex-direction: column;
     gap: 5px;
     flex: 1;
     max-height: 570px;
     padding: 0 4px;
     overflow: auto;
-		
+
     &::-webkit-scrollbar {
-			width: 7px;
+      width: 7px;
       background-color: $c-white;
       border-radius: 5px;
     }
-		
+
     &::-webkit-scrollbar-thumb {
-			background-color: $c-medium-blue;
+      background-color: $c-medium-blue;
       border-radius: 5px;
     }
   }
 
-	&__empty {
-		text-align: center;
-		padding: 20px 0 15px 0;
+  &__empty {
+    text-align: center;
+    padding: 20px 0 15px 0;
 
-		img {
-			display: block;
-			margin: 0 auto 15px;
-		}
+    img {
+      display: block;
+      margin: 0 auto 15px;
+    }
 
-		span {
-			font-size: 1.3rem;
-			font-weight: 600;
-		}
-	}
+    span {
+      font-size: 1.3rem;
+      font-weight: 600;
+    }
+  }
 }
