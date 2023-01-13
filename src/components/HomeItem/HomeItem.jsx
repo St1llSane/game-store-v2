@@ -1,9 +1,33 @@
 import { BiSearchAlt } from 'react-icons/bi'
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import InCartBtn from '../UI/InCartBtn/InCartBtn'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  addToCart,
+  removeFromCart,
+  cartSelector,
+} from '../../redux/slices/cartGames'
 import './home-item.scss'
 
-function HomeItem({ img, name, genres, price }) {
+function HomeItem({ id, img, name, genres, price }) {
+  const dispatch = useDispatch()
+  const [addBtnIsActive, setAddBtnIsActive] = useState(false)
+
+  const cart = useSelector(cartSelector)
+
+  const addGameToCartHandler = () => {
+    const thisGame = { id, img, name, price }
+    const gameToRemove = cart.find((item) => +item.id === +thisGame.id)
+
+    if (gameToRemove) {
+      dispatch(removeFromCart(cart.filter((item) => +item.id !== +thisGame.id)))
+      setAddBtnIsActive(false)
+    } else {
+      dispatch(addToCart([...cart, thisGame]))
+      setAddBtnIsActive(true)
+    }
+  }
+
   return (
     <div className="home-item">
       <Link to="/" className="home-item__img">
@@ -21,7 +45,14 @@ function HomeItem({ img, name, genres, price }) {
         </ul>
         <div className="home-item__content-buy">
           <span>{price} руб.</span>
-          <InCartBtn />
+          <button
+            className={`home-item__content-buy_btn ${
+              addBtnIsActive ? 'home-item__content-buy_btn--active' : ''
+            }`}
+            onClick={addGameToCartHandler}
+          >
+            {addBtnIsActive ? 'Удалить' : 'Добавить'}
+          </button>
         </div>
       </div>
     </div>
