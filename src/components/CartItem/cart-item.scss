@@ -1,0 +1,57 @@
+@import '../../styles/vars.scss';
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 13px 25px;
+  border-top: 2px solid #35383a;
+  border-radius: 2px;
+
+  &:last-child {
+    border-bottom: 2px solid #35383a;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    &-img {
+      display: flex;
+      border-radius: 12px;
+      @extend %gameImgHover;
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__content {
+    max-width: 420px;
+
+    &-name {
+      font-size: 1.4rem;
+      word-break: break-all;
+      margin-bottom: 15px;
+    }
+
+    &-price {
+      font-size: 1.05rem;
+    }
+  }
+
+  &__right {
+    button {
+      color: #f36b6b;
+      border-bottom: 2px solid #f36b6b;
+      transition: all 0.1s ease;
+
+      &:hover {
+        color: #df4848;
+        border-color: #df4848;
+      }
+    }
+  }
+}

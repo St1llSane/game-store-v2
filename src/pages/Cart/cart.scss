@@ -1,0 +1,18 @@
+@import '../../styles/vars.scss';
+
+.cart {
+	&__empty {
+		text-align: center;
+		padding-top: 20px;
+
+		img {
+			margin-bottom: 15px;
+		}
+
+		span {
+			font-size: 1.8rem;
+			font-weight: 600;
+			display: block;
+		}
+	}
+}

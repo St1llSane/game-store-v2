@@ -1,7 +1,7 @@
 import React from "react"
 import ContentLoader from "react-content-loader"
 
-const HomeItemSkeleton = (props) => (
+const HomeSkeleton = (props) => (
   <ContentLoader 
     speed={1.7}
     width={290}
@@ -21,4 +21,4 @@ const HomeItemSkeleton = (props) => (
   </ContentLoader>
 )
 
-export default HomeItemSkeleton
+export default HomeSkeleton
