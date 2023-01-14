@@ -1,5 +1,4 @@
 import { BiSearchAlt } from 'react-icons/bi'
-import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import {
@@ -7,12 +6,13 @@ import {
   removeFromCart,
   cartSelector,
 } from '../../redux/slices/cartGames'
+import { addBtnSelector, setAddBtnIsActive } from '../../redux/slices/gamesSlice'
 import './home-item.scss'
 
 function HomeItem({ id, img, name, genres, price }) {
   const dispatch = useDispatch()
-  const [addBtnIsActive, setAddBtnIsActive] = useState(false)
 
+	const addBtnIsActive = useSelector(addBtnSelector)
   const cart = useSelector(cartSelector)
 
   const addGameToCartHandler = () => {
@@ -21,10 +21,10 @@ function HomeItem({ id, img, name, genres, price }) {
 
     if (gameToRemove) {
       dispatch(removeFromCart(cart.filter((item) => +item.id !== +thisGame.id)))
-      setAddBtnIsActive(false)
+			dispatch(setAddBtnIsActive(false))
     } else {
       dispatch(addToCart([...cart, thisGame]))
-      setAddBtnIsActive(true)
+			dispatch(setAddBtnIsActive(true))
     }
   }
 

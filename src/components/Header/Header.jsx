@@ -12,7 +12,6 @@ function Header() {
   const dispatch = useDispatch()
 
   const  isCartPreviewVisible  = useSelector(isVisibleSelector)
-	console.log(isCartPreviewVisible)
 
   const visibilityCartPreviewHandler = () => {
     dispatch(setIsVisible(!isCartPreviewVisible))

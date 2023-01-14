@@ -1,16 +1,26 @@
 import { BsPlusLg } from 'react-icons/bs'
+import { useDispatch, useSelector } from 'react-redux'
+import { cartSelector, removeFromCart } from '../../redux/slices/cartGames'
 import './cart-preview-item.scss'
 
-function CartPreviewItem() {
+function CartPreviewItem({ id, img, name, price }) {
+  const dispatch = useDispatch()
+
+  const cart = useSelector(cartSelector)
+
+  const removeGameHandler = () => {
+    dispatch(removeFromCart(cart.filter((item) => +item.id !== +id)))
+  }
+
   return (
-    <li className='cart-preview-item'>
-      <img src="" alt="game_img" />
-      <div className='cart-preview-item__content'>
-        <div className='cart-preview-item__info'>
-          <h6>Name</h6>
-          <span>1000 руб.</span>
+    <li className="cart-preview-item">
+      <img src={img} alt="game_img" />
+      <div className="cart-preview-item__content">
+        <div className="cart-preview-item__info">
+          <h6>{name}</h6>
+          <span>{price} руб.</span>
         </div>
-        <button>
+        <button onClick={removeGameHandler}>
           <BsPlusLg />
         </button>
       </div>
@@ -19,4 +29,3 @@ function CartPreviewItem() {
 }
 
 export default CartPreviewItem
-

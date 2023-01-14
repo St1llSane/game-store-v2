@@ -38,10 +38,11 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 5px;
     flex: 1;
+    gap: 5px;
     max-height: 570px;
     padding: 0 4px;
+		margin-bottom: 45px;
     overflow: auto;
 
     &::-webkit-scrollbar {
