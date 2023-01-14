@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { cartSelector } from '../../../redux/slices/cartGames'
+import { cartSelector } from '../../../redux/slices/cartGamesSlice'
 import './cart-total.scss'
 
 function CartTotal({ children }) {

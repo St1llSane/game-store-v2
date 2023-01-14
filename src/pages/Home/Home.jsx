@@ -1,18 +1,21 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGames, gamesSelector } from '../../redux/slices/gamesSlice'
+import { searchInputSelector } from '../../redux/slices/searchGamesSlice'
 import './home.scss'
 import HomeSkeleton from './HomeSkeleton'
 import HomeItem from '../../components/HomeItem'
 
 function Home() {
   const dispatch = useDispatch()
-
   const { games, status } = useSelector(gamesSelector)
+  const searchInputValue = useSelector(searchInputSelector)
+
+  const searchByInput = searchInputValue ? `name=${searchInputValue}` : ''
 
   useEffect(() => {
-    dispatch(fetchGames())
-  }, [])
+    dispatch(fetchGames({ searchByInput }))
+  }, [searchByInput])
 
   const gamesSkeleton = [...new Array(10).keys()].map((key) => (
     <HomeSkeleton key={key} />

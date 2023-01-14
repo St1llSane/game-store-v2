@@ -4,7 +4,7 @@ const initialState = {
   isVisible: false,
 }
 
-const cartPreview = createSlice({
+const cartPreviewSlice = createSlice({
   name: 'cartPreview',
   initialState,
   reducers: {
@@ -14,8 +14,8 @@ const cartPreview = createSlice({
   },
 })
 
-export const isVisibleSelector = (state) => state.cartPreview.isVisible
+export const isVisibleSelector = (state) => state.cartPreviewSlice.isVisible
 
-export const { setIsVisible } = cartPreview.actions
+export const { setIsVisible } = cartPreviewSlice.actions
 
-export default cartPreview.reducer
+export default cartPreviewSlice.reducer

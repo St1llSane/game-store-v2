@@ -3,15 +3,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import { RiShoppingCartLine } from 'react-icons/ri'
 import { SlWallet } from 'react-icons/sl'
-import { isVisibleSelector, setIsVisible } from '../../redux/slices/cartPreview'
-import { cartSelector } from '../../redux/slices/cartGames'
+import {
+  isVisibleSelector,
+  setIsVisible,
+} from '../../redux/slices/cartPreviewSlice'
+import { cartSelector } from '../../redux/slices/cartGamesSlice'
 import SearchInput from '../UI/SearchInput/SearchInput'
 import CartPreview from '../UI/CartPreview'
 import './header.scss'
 
 function Header() {
   const dispatch = useDispatch()
-
   const isCartPreviewVisible = useSelector(isVisibleSelector)
   const gamesInCart = useSelector(cartSelector)
 

@@ -3,9 +3,9 @@ import axios from 'axios'
 
 export const fetchGames = createAsyncThunk(
   'games/fetchGamesStatus',
-  async () => {
+  async ({ searchByInput }) => {
     const { data } = await axios.get(
-      'https://639df5493542a2613053e993.mockapi.io/games'
+      `https://639df5493542a2613053e993.mockapi.io/games?${searchByInput}`
     )
     return data
   }
@@ -20,10 +20,10 @@ const gamesSlice = createSlice({
   name: 'games',
   initialState,
   reducers: {
-		changeInCartStatus: (state, action) => {
-			state.games = action.payload
-		}
-	},
+    changeInCartStatus: (state, action) => {
+      state.games = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchGames.pending, (state) => {
       state.games = []

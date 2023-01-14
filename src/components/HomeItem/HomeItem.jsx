@@ -5,16 +5,15 @@ import {
   addToCart,
   removeFromCart,
   cartSelector,
-} from '../../redux/slices/cartGames'
+} from '../../redux/slices/cartGamesSlice'
 import './home-item.scss'
 
 function HomeItem({ id, img, name, genres, price }) {
   const dispatch = useDispatch()
-  // const [addBtnIsActive, setAddBtnIsActive] = useState(false)
 
   const cart = useSelector(cartSelector)
   const thisGame = { id, img, name, price }
-	const isGameInCart = cart.some((game) => +game.id === +id)
+  const isGameInCart = cart.some((game) => +game.id === +id)
 
   const addGameToCartHandler = () => {
     const gameIsFounded = cart.find((item) => +item.id === +thisGame.id)

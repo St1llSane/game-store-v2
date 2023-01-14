@@ -1,6 +1,6 @@
 import { BsPlusLg } from 'react-icons/bs'
 import { useDispatch } from 'react-redux'
-import { removeFromCart } from '../../redux/slices/cartGames'
+import { removeFromCart } from '../../redux/slices/cartGamesSlice'
 import './cart-preview-item.scss'
 
 function CartPreviewItem({ id, img, name, price }) {

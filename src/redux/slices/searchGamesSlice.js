@@ -5,17 +5,20 @@ const initialState = {
 }
 
 const searchGamesSlice = createSlice({
-  name: 'searchGamesQuery',
+  name: 'searchGames',
   initialState,
   reducers: {
     setSearchGames: (state, action) => {
       state.inputValue = action.payload
     },
+    resetSearchGames: (state) => {
+      state.inputValue = ''
+    },
   },
 })
 
-export const searchInputSelector = (state) => state.inputValue
+export const searchInputSelector = (state) => state.searchGamesSlice.inputValue
 
-export const { setSearchGames } = searchGamesSlice.actions
+export const { setSearchGames, resetSearchGames } = searchGamesSlice.actions
 
 export default searchGamesSlice.reducer
