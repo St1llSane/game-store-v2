@@ -1,9 +1,10 @@
+import { useSelector } from 'react-redux'
+import { cartSelector } from '../../../redux/slices/cartGames'
 import './cart-total.scss'
 
 function CartTotal({ children }) {
-  // if (cartGames.length > 0) {
-  //   cartTotalPrice = cartGames.reduce((summ, game) => summ + game.price, 0)
-  // }
+  const cart = useSelector(cartSelector)
+  const cartTotalPrice = cart.reduce((summ, game) => summ + game.price, 0)
 
   return (
     <div className="cart-total">
@@ -11,12 +12,12 @@ function CartTotal({ children }) {
         <li className="cart-total__info-item">
           <div>Товаров:</div>
           <span></span>
-          <div>0 шт.</div>
+          <div>{cart.length} шт.</div>
         </li>
         <li className="cart-total__info-item">
           <div>К оплате:</div>
           <span></span>
-          <div>0 руб.</div>
+          <div>{cartTotalPrice} руб.</div>
         </li>
       </ul>
       {children}

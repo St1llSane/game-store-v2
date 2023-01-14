@@ -13,7 +13,8 @@ function HomeItem({ id, img, name, genres, price }) {
   // const [addBtnIsActive, setAddBtnIsActive] = useState(false)
 
   const cart = useSelector(cartSelector)
-  const thisGame = { id, img, name, price, inCart: false }
+  const thisGame = { id, img, name, price }
+	const isGameInCart = cart.some((game) => +game.id === +id)
 
   const addGameToCartHandler = () => {
     const gameIsFounded = cart.find((item) => +item.id === +thisGame.id)
@@ -44,11 +45,11 @@ function HomeItem({ id, img, name, genres, price }) {
           <span>{price} руб.</span>
           <button
             className={`home-item__content-buy_btn ${
-              thisGame.inCart ? 'home-item__content-buy_btn--active' : ''
+              isGameInCart ? 'home-item__content-buy_btn--active' : ''
             }`}
             onClick={addGameToCartHandler}
           >
-            {thisGame.inCart ? 'Удалить' : 'Добавить'}
+            {isGameInCart ? 'Удалить' : 'Добавить'}
           </button>
         </div>
       </div>

@@ -9,7 +9,7 @@ import CartTotal from '../CartTotal'
 function CartPreview() {
   const isCartPreviewVisible = useSelector(isVisibleSelector)
 
-  const cartGames = useSelector(cartSelector)
+  const cart = useSelector(cartSelector)
 
   return (
     <div
@@ -17,9 +17,9 @@ function CartPreview() {
         isCartPreviewVisible ? 'cart-preview--active' : ''
       }`}
     >
-      {cartGames.length > 0 ? (
+      {cart.length > 0 ? (
         <ul className="cart-preview__list">
-          {cartGames.map((game) => (
+          {cart.map((game) => (
             <CartPreviewItem {...game} key={game.id} />
           ))}
         </ul>
