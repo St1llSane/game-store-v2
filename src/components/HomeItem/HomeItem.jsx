@@ -6,25 +6,22 @@ import {
   removeFromCart,
   cartSelector,
 } from '../../redux/slices/cartGames'
-import { addBtnSelector, setAddBtnIsActive } from '../../redux/slices/gamesSlice'
 import './home-item.scss'
 
 function HomeItem({ id, img, name, genres, price }) {
   const dispatch = useDispatch()
+  // const [addBtnIsActive, setAddBtnIsActive] = useState(false)
 
-	const addBtnIsActive = useSelector(addBtnSelector)
   const cart = useSelector(cartSelector)
+  const thisGame = { id, img, name, price, inCart: false }
 
   const addGameToCartHandler = () => {
-    const thisGame = { id, img, name, price }
-    const gameToRemove = cart.find((item) => +item.id === +thisGame.id)
+    const gameIsFounded = cart.find((item) => +item.id === +thisGame.id)
 
-    if (gameToRemove) {
-      dispatch(removeFromCart(cart.filter((item) => +item.id !== +thisGame.id)))
-			dispatch(setAddBtnIsActive(false))
+    if (gameIsFounded) {
+      dispatch(removeFromCart(id))
     } else {
-      dispatch(addToCart([...cart, thisGame]))
-			dispatch(setAddBtnIsActive(true))
+      dispatch(addToCart(thisGame))
     }
   }
 
@@ -47,11 +44,11 @@ function HomeItem({ id, img, name, genres, price }) {
           <span>{price} руб.</span>
           <button
             className={`home-item__content-buy_btn ${
-              addBtnIsActive ? 'home-item__content-buy_btn--active' : ''
+              thisGame.inCart ? 'home-item__content-buy_btn--active' : ''
             }`}
             onClick={addGameToCartHandler}
           >
-            {addBtnIsActive ? 'Удалить' : 'Добавить'}
+            {thisGame.inCart ? 'Удалить' : 'Добавить'}
           </button>
         </div>
       </div>

@@ -9,10 +9,10 @@ const cartGames = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.cart = action.payload
+      state.cart.push(action.payload)
     },
     removeFromCart: (state, action) => {
-      state.cart = action.payload
+      state.cart = state.cart.filter((game) => game.id !== action.payload)
     },
   },
 })

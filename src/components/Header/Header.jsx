@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { isVisibleSelector, setIsVisible } from '../../redux/slices/cartPreview'
+import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
 import { RiShoppingCartLine } from 'react-icons/ri'
 import { SlWallet } from 'react-icons/sl'
-import { BsEyeFill, BsEyeSlashFill } from 'react-icons/bs'
+import { isVisibleSelector, setIsVisible } from '../../redux/slices/cartPreview'
+import { cartSelector } from '../../redux/slices/cartGames'
 import SearchInput from '../UI/SearchInput/SearchInput'
 import CartPreview from '../UI/CartPreview'
 import './header.scss'
@@ -11,7 +12,8 @@ import './header.scss'
 function Header() {
   const dispatch = useDispatch()
 
-  const  isCartPreviewVisible  = useSelector(isVisibleSelector)
+  const isCartPreviewVisible = useSelector(isVisibleSelector)
+  const gamesInCart = useSelector(cartSelector)
 
   const visibilityCartPreviewHandler = () => {
     dispatch(setIsVisible(!isCartPreviewVisible))
@@ -27,7 +29,7 @@ function Header() {
         <div className="header__right-cart">
           <Link to="/cart" className="header__right-cart_btn">
             <RiShoppingCartLine />
-            <span>0</span>
+            <span>{gamesInCart.length}</span>
           </Link>
           <button
             className="header__right-cart_toggle"

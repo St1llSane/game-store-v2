@@ -14,17 +14,16 @@ export const fetchGames = createAsyncThunk(
 const initialState = {
   games: [],
   status: 'loading',
-	addBtnIsActive: false
 }
 
 const gamesSlice = createSlice({
   name: 'games',
   initialState,
   reducers: {
-    setAddBtnIsActive: (state, action) => {
-			state.addBtnIsActive = action.payload
+		changeInCartStatus: (state, action) => {
+			state.games = action.payload
 		}
-  },
+	},
   extraReducers: (builder) => {
     builder.addCase(fetchGames.pending, (state) => {
       state.games = []
@@ -44,6 +43,6 @@ const gamesSlice = createSlice({
 export const gamesSelector = (state) => state.gamesSlice
 export const addBtnSelector = (state) => state.gamesSlice.addBtnIsActive
 
-export const { setAddBtnIsActive } = gamesSlice.actions
+export const { changeInCartStatus } = gamesSlice.actions
 
 export default gamesSlice.reducer
