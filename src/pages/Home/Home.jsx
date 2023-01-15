@@ -1,21 +1,26 @@
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGames, gamesSelector } from '../../redux/slices/gamesSlice'
 import { searchInputSelector } from '../../redux/slices/searchGamesSlice'
+import { activeGenreSelector } from '../../redux/slices/activeGenre'
 import './home.scss'
 import HomeSkeleton from './HomeSkeleton'
 import HomeItem from '../../components/HomeItem'
+import Genres from '../../components/Genres'
 
 function Home() {
   const dispatch = useDispatch()
   const { games, status } = useSelector(gamesSelector)
   const searchInputValue = useSelector(searchInputSelector)
+  const activeGenre = useSelector(activeGenreSelector)
 
   const searchByInput = searchInputValue ? `name=${searchInputValue}` : ''
+  const searchByGenre = activeGenre ? `filter=${activeGenre}` : ''
+  console.log('render')
 
   useEffect(() => {
-    dispatch(fetchGames({ searchByInput }))
-  }, [searchByInput])
+    dispatch(fetchGames({ searchByInput, searchByGenre }))
+  }, [searchByInput, searchByGenre])
 
   const gamesSkeleton = [...new Array(10).keys()].map((key) => (
     <HomeSkeleton key={key} />
@@ -31,7 +36,7 @@ function Home() {
       ) : (
         <div className="home__wrapper">{renderGames}</div>
       )}
-      {/* <GenresList /> */}
+      <Genres />
     </section>
   )
 }
