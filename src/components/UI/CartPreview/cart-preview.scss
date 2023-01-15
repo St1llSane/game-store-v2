@@ -41,13 +41,13 @@
     flex: 1;
     gap: 5px;
     max-height: 570px;
-    padding: 0 4px;
+    padding: 0 6px 0 0;
 		margin-bottom: 45px;
     overflow: auto;
 
     &::-webkit-scrollbar {
       width: 7px;
-      background-color: $c-white;
+      background-color: #aaaaaa;
       border-radius: 5px;
     }
 
@@ -59,7 +59,7 @@
 
   &__empty {
     text-align: center;
-    padding: 20px 0 15px 0;
+    padding: 20px 0;
 
     img {
       display: block;
@@ -67,7 +67,7 @@
     }
 
     span {
-      font-size: 1.3rem;
+      font-size: $f-medium;
       font-weight: 600;
     }
   }

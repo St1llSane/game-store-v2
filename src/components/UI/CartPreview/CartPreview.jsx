@@ -23,12 +23,12 @@ function CartPreview() {
             <CartPreviewItem {...game} key={game.id} />
           ))}
         </ul>
-      ) : null}
-
-      {/* <div className="cart-preview__empty">
-        <img src="images/empty-box.png" width={120} alt="empty-cart" />
-        <span>{`Корзина пуста :(`}</span>
-      </div> */}
+      ) : (
+        <div className="cart-preview__empty">
+          <img src="images/empty-box.png" width={120} alt="empty-cart" />
+          <span>{`Корзина пуста :(`}</span>
+        </div>
+      )}
       <CartTotal>
         <Link to="/cart">
           <button>Перейти в корзину</button>

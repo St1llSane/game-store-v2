@@ -2,14 +2,15 @@
   display: flex;
   justify-content: space-between;
   gap: 30px;
+	margin-bottom: 50px;
 
   &__wrapper {
     width: 100%;
-    max-width: 935px;
+    max-width: 920px;
     display: grid;
     grid-template-columns: repeat(3, minmax(275px, 290px));
     grid-template-rows: 366px;
     justify-content: space-between;
-    gap: 30px;
+    gap: 23px;
   }
 }

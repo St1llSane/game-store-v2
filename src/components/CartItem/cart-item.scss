@@ -32,13 +32,13 @@
     max-width: 420px;
 
     &-name {
-      font-size: 1.4rem;
+      font-size: $f-big;
       word-break: break-all;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
     }
 
     &-price {
-      font-size: 1.05rem;
+      font-size: $f-def
     }
   }
 

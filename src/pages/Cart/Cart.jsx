@@ -1,20 +1,30 @@
+import { useSelector } from 'react-redux'
+import { cartSelector } from '../../redux/slices/cartGamesSlice'
 import PageTop from '../../components/UI/PageTop/PageTop'
 import CartTotal from '../../components/UI/CartTotal'
+import CartItem from '../../components/CartItem'
 import './cart.scss'
-import CartItem from '../../components/CartItem/CartItem'
 
 function Cart() {
+  const cartGames = useSelector(cartSelector)
+
   return (
     <div className="cart">
       <PageTop>Корзина</PageTop>
       <div className="cart__content">
-        <ul className="cart__items"><CartItem /></ul>
-        <CartTotal />
+        <ul className="cart__items">
+          {cartGames.map((game) => (
+            <CartItem {...game} key={game.id} />
+          ))}
+        </ul>
+        {cartGames.length > 0 ? <CartTotal /> : null}
       </div>
-      {/* <div className="cart__empty">
-        <img src="images/empty-box.png" width={200} alt="empty-box" />
-        <span>{`Корзина пуста :(`}</span>
-      </div> */}
+      {cartGames.length == 0 ? (
+        <div className="cart__empty">
+          <img src="images/empty-box.png" width={230} alt="empty-box" />
+          <span>{`Корзина пуста :(`}</span>
+        </div>
+      ) : null}
     </div>
   )
 }

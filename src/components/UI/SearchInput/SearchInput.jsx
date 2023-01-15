@@ -1,5 +1,5 @@
 import debounce from 'lodash.debounce'
-import { useCallback, useState } from 'react'
+import { useCallback, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
   resetSearchGames,
@@ -9,6 +9,7 @@ import './search-input.scss'
 
 function SearchInput() {
   const dispatch = useDispatch()
+  const inputRef = useRef(null)
   const [value, setValue] = useState('')
 
   const searchDebounce = useCallback(
@@ -26,6 +27,7 @@ function SearchInput() {
   const onResetInput = () => {
     setValue('')
     dispatch(resetSearchGames())
+    inputRef.current.focus()
   }
 
   return (
@@ -35,6 +37,7 @@ function SearchInput() {
         type="text"
         placeholder="Поиск..."
         value={value}
+        ref={inputRef}
         onChange={onSearchInput}
       />
       {value.length > 0 && (
