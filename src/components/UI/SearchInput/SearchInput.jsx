@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import debounce from 'lodash.debounce'
+import { useCallback, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
   resetSearchGames,
@@ -10,9 +11,16 @@ function SearchInput() {
   const dispatch = useDispatch()
   const [value, setValue] = useState('')
 
+  const searchDebounce = useCallback(
+    debounce((value) => {
+      dispatch(setSearchGames(value))
+    }, 800),
+    []
+  )
+
   const onSearchInput = (e) => {
     setValue(e.target.value)
-    dispatch(setSearchGames(e.target.value))
+    searchDebounce(e.target.value)
   }
 
   const onResetInput = () => {
