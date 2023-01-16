@@ -4,6 +4,7 @@ import searchGamesSlice from './slices/searchGamesSlice'
 import cartPreviewSlice from './slices/cartPreviewSlice'
 import cartGamesSlice from './slices/cartGamesSlice'
 import activeGenre from './slices/activeGenre'
+import filtersSlice from './slices/filtersSlice'
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     cartPreviewSlice,
     cartGamesSlice,
     activeGenre,
+    filtersSlice,
   },
 })

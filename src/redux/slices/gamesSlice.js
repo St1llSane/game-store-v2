@@ -3,9 +3,9 @@ import axios from 'axios'
 
 export const fetchGames = createAsyncThunk(
   'games/fetchGamesStatus',
-  async ({ searchByInput, searchByGenre }) => {
+  async ({ searchByInput, searchByFilter }) => {
     const { data } = await axios.get(
-      `https://639df5493542a2613053e993.mockapi.io/games?${searchByInput}&${searchByGenre}`
+      `https://639df5493542a2613053e993.mockapi.io/games?${searchByInput}${searchByFilter}`
     )
     return data
   }
