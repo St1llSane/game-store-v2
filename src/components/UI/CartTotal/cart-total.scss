@@ -1,7 +1,7 @@
 @import '../../../styles/vars.scss';
 
 .cart-total {
-	margin: 0 4px;
+  margin: 0 4px;
   margin-top: 5px;
   max-width: 440px;
   &__info {
@@ -27,24 +27,25 @@
     }
   }
 
-  a {
+  span {
     display: block;
     margin-top: 25px;
     margin-right: 6px;
-  }
+    display: flex;
 
-  button {
-    font-size: $f-def;
-    font-weight: 600;
-    padding: 2px 9px 3px 9px;
-    background-color: $c-light-orange;
-    border-radius: 5px;
-    display: block;
-    margin-left: auto;
-    transition: background-color 0.1s ease;
+    a {
+      font-size: $f-def;
+      font-weight: 600;
+      padding: 2px 9px 3px 9px;
+      background-color: $c-light-orange;
+      border-radius: 5px;
 
-    &:hover {
-      background-color: $c-orange;
+      margin-left: auto;
+      transition: background-color 0.1s ease;
+
+      &:hover {
+        background-color: $c-orange;
+      }
     }
   }
 }
