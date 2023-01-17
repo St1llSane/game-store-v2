@@ -3,6 +3,7 @@ import './styles/reset.scss'
 import './app.scss'
 import Header from './components/Header'
 import Home from './pages/Home'
+import GamePage from './pages/GamePage/GamePage'
 import Cart from './pages/Cart'
 import NotFound from './pages/NotFound'
 
@@ -13,6 +14,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+					<Route path='/:name' element={<GamePage />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -14,7 +14,7 @@ function Cart() {
       <div className="cart__content">
         <ul className="cart__items">
           {cartGames.map((game) => (
-            <CartItem {...game} key={game.id} />
+            <CartItem game={game} key={game.id} />
           ))}
         </ul>
         {cartGames.length > 0 ? <CartTotal /> : null}

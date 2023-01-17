@@ -6,42 +6,45 @@ import {
   removeFromCart,
   cartSelector,
 } from '../../redux/slices/cartGamesSlice'
+import { setCurrentGame } from '../../redux/slices/gamesSlice'
 import './home-item.scss'
 
-function HomeItem({ id, img, name, genres, price }) {
+function HomeItem({ game }) {
   const dispatch = useDispatch()
-
   const cart = useSelector(cartSelector)
-  const thisGame = { id, img, name, price }
-  const isGameInCart = cart.some((game) => +game.id === +id)
+  const isGameInCart = cart.some((item) => +item.id === +game.id)
 
   const addGameToCartHandler = () => {
-    const gameIsFounded = cart.find((item) => +item.id === +thisGame.id)
+    const gameIsFounded = cart.find((item) => +item.id === +game.id)
 
     if (gameIsFounded) {
-      dispatch(removeFromCart(id))
+      dispatch(removeFromCart(game.id))
     } else {
-      dispatch(addToCart(thisGame))
+      dispatch(addToCart(game))
     }
   }
 
   return (
     <div className="home-item">
-      <Link to="/" className="home-item__img">
+      <Link
+        to={`/${game.name}`}
+        className="home-item__img"
+        onClick={() => dispatch(setCurrentGame(game))}
+      >
         <BiSearchAlt />
-        <img src={img} alt="game-image" />
+        <img src={game.img} alt="game-image" />
       </Link>
       <div className="home-item__content">
         <h3 className="home-item__content-title">{name}</h3>
         <ul className="home-item__content-genres">
-          {genres.map((genre) => (
+          {game.genres.map((genre) => (
             <li key={genre}>
               <button>{genre}</button>
             </li>
           ))}
         </ul>
         <div className="home-item__content-buy">
-          <span>{price} руб.</span>
+          <span>{game.price} руб.</span>
           <button
             className={`home-item__content-buy_btn ${
               isGameInCart ? 'home-item__content-buy_btn--active' : ''

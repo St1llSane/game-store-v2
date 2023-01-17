@@ -1,25 +1,26 @@
 import { BiSearchAlt } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 import { removeFromCart } from '../../redux/slices/cartGamesSlice'
 import './cart-item.scss'
 
-function CartItem({ id, img, name, price }) {
+function CartItem({ game }) {
   const dispatch = useDispatch()
 
   const removeGameHandler = () => {
-    dispatch(removeFromCart(id))
+    dispatch(removeFromCart(game.id))
   }
 
   return (
     <li className="cart-item">
       <div className="cart-item__left">
-        <a href="#" className="cart-item__left-img">
+        <Link to={`/${game.name}`} className="cart-item__left-img">
           <BiSearchAlt />
-          <img src={img} alt="item-img" width={205} height={116} />
-        </a>
+          <img src={game.img} alt="item-img" width={205} height={116} />
+        </Link>
         <div className="cart-item__content">
-          <h4 className="cart-item__content-name">{name}</h4>
-          <span className="cart-item__content-price">{price} руб.</span>
+          <h4 className="cart-item__content-name">{game.name}</h4>
+          <span className="cart-item__content-price">{game.price} руб.</span>
         </div>
       </div>
       <div className="cart-item__right" onClick={removeGameHandler}>

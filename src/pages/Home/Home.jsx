@@ -24,7 +24,7 @@ function Home() {
   const renderSkeleton = [...new Array(10).keys()].map((key) => (
     <HomeSkeleton key={key} />
   ))
-  const renderGames = games.map((game) => <HomeItem {...game} key={game.id} />)
+  const renderGames = games.map((game) => <HomeItem game={game} key={game.id} />)
 
   return (
     <section className="home">
