@@ -1,32 +1,37 @@
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { setIsVisible } from '../../redux/slices/cartPreviewSlice'
+import { cartSelector } from '../../redux/slices/cartGamesSlice'
 import {
-  isVisibleSelector,
-  setIsVisible,
-} from '../../../redux/slices/cartPreviewSlice'
-import { cartSelector } from '../../../redux/slices/cartGamesSlice'
+  currentGameSelector,
+  resetCurrentGame,
+} from '../../redux/slices/gamesSlice'
 import './cart-preview.scss'
-import CartPreviewItem from '../../CartPreviewItem'
-import CartTotal from '../CartTotal'
+import CartPreviewItem from '../CartPreviewItem'
+import CartTotal from '../UI/CartTotal'
 
 function CartPreview() {
   const dispatch = useDispatch()
-  const isCartPreviewVisible = useSelector(isVisibleSelector)
   const cart = useSelector(cartSelector)
+  const currentGame = useSelector(currentGameSelector)
 
-  const hideCartPreviewHandler = () => {
+  const hidePreviewHandler = () => {
     dispatch(setIsVisible(false))
   }
 
+  const onMoveToCartHandler = () => {
+    hidePreviewHandler()
+    if (currentGame) {
+      dispatch(resetCurrentGame())
+    }
+    return
+  }
+
   return (
-    <div
-      className={`cart-preview ${
-        isCartPreviewVisible ? 'cart-preview--active' : ''
-      }`}
-    >
+    <div className="cart-preview">
       <button
         className="cart-preview__close"
-        onClick={hideCartPreviewHandler}
+        onClick={hidePreviewHandler}
       ></button>
       {cart.length > 0 ? (
         <ul className="cart-preview__list">
@@ -42,7 +47,9 @@ function CartPreview() {
       )}
       <CartTotal>
         <span>
-          <Link to="/cart">Перейти в корзину</Link>
+          <Link to="/cart" onClick={onMoveToCartHandler}>
+            Перейти в корзину
+          </Link>
         </span>
       </CartTotal>
     </div>

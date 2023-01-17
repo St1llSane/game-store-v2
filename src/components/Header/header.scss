@@ -23,50 +23,6 @@
     align-items: center;
     column-gap: 46px;
 
-    &-cart {
-      font-size: $f-medium;
-      position: relative;
-
-      &--disabled {
-        pointer-events: none;
-      }
-
-      &_btn {
-        font-size: 2.9rem;
-        display: flex;
-        position: relative;
-        transition: color 0.1s ease;
-
-        &:hover {
-          color: $c-light-orange;
-        }
-
-        span {
-          position: absolute;
-          top: -8px;
-          right: -12px;
-          width: 22px;
-          height: 22px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: #fff;
-          font-size: $f-small;
-          background-color: $c-orange;
-          border-radius: $b-radius-big;
-          z-index: 10;
-        }
-      }
-
-      &_toggle {
-        width: 20px;
-        height: 20px;
-        position: absolute;
-        right: -21px;
-        bottom: -11px;
-      }
-    }
-
     &-money {
       font-size: 1.9rem;
       display: flex;

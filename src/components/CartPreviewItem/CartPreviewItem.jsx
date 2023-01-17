@@ -1,12 +1,18 @@
 import { BsPlusLg } from 'react-icons/bs'
-import { useDispatch } from 'react-redux'
-import { removeFromCart } from '../../redux/slices/cartGamesSlice'
+import { useDispatch, useSelector } from 'react-redux'
+import { cartSelector, removeFromCart } from '../../redux/slices/cartGamesSlice'
+import { setIsVisible } from '../../redux/slices/cartPreviewSlice'
 import './cart-preview-item.scss'
 
 function CartPreviewItem({ game }) {
   const dispatch = useDispatch()
+  const cart = useSelector(cartSelector)
 
   const removeGameHandler = () => {
+    console.log(cart.length)
+    if (cart.length <= 1) {
+      dispatch(setIsVisible(false))
+    }
     dispatch(removeFromCart(game.id))
   }
 

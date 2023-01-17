@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   cartSelector,
@@ -14,8 +13,6 @@ function InCartBtn({ game }) {
   const isGameInCart = cart.some((item) => +item.id === +game.id)
   const gameIsFounded = cart.find((item) => +item.id === +game.id)
 
-  console.log('render')
-
   const addGameToCartHandler = () => {
     if (gameIsFounded) {
       dispatch(removeFromCart(game.id))
@@ -27,9 +24,7 @@ function InCartBtn({ game }) {
 
   return (
     <button
-      className={`home-item__content-buy_btn ${
-        isGameInCart ? 'home-item__content-buy_btn--active' : ''
-      }`}
+      className={`in-cart-btn ${isGameInCart ? 'in-cart-btn--active' : ''}`}
       onClick={addGameToCartHandler}
     >
       {isGameInCart ? 'Удалить' : 'Добавить'}

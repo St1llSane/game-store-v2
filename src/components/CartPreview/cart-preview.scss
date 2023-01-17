@@ -1,4 +1,4 @@
-@import '../../../styles/vars.scss';
+@import '../../styles/vars.scss';
 
 .cart-preview {
   position: absolute;
@@ -11,16 +11,8 @@
   padding: 10px 6px 15px 6px;
   background-color: $c-light-grey;
   border-radius: $b-radius-def;
-  box-shadow: 0 3px 17px #222425;
-  visibility: hidden;
-  opacity: 0;
+  box-shadow: 0 3px 17px $c-medium-blue;
   z-index: 100;
-  transition: visibility 0.2s ease, opacity 0.2s ease;
-
-  &--active {
-    visibility: visible;
-    opacity: 1;
-  }
 
   &::before {
     position: absolute;
