@@ -2,6 +2,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeFromCart } from '../../redux/slices/cartGamesSlice'
+import { setCurrentGame } from '../../redux/slices/gamesSlice'
 import './cart-item.scss'
 
 function CartItem({ game }) {
@@ -14,7 +15,11 @@ function CartItem({ game }) {
   return (
     <li className="cart-item">
       <div className="cart-item__left">
-        <Link to={`/${game.name}`} className="cart-item__left-img">
+        <Link
+          to={`/${game.name}`}
+          className="cart-item__left-img"
+          onClick={() => dispatch(setCurrentGame(game))}
+        >
           <BiSearchAlt />
           <img src={game.img} alt="item-img" width={205} height={116} />
         </Link>

@@ -1,25 +1,27 @@
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   cartSelector,
   addToCart,
   removeFromCart,
 } from '../../../redux/slices/cartGamesSlice'
-import { currentGameSelector } from '../../../redux/slices/gamesSlice'
+import { setCurrentGame } from '../../../redux/slices/gamesSlice'
 import './in-cart-btn.scss'
 
-function InCartBtn() {
+function InCartBtn({ game }) {
   const dispatch = useDispatch()
   const cart = useSelector(cartSelector)
-  const currentGame = useSelector(currentGameSelector)
-  const isGameInCart = cart.some((game) => +game.id === +currentGame.id)
+  const isGameInCart = cart.some((item) => +item.id === +game.id)
+  const gameIsFounded = cart.find((item) => +item.id === +game.id)
+
+  console.log('render')
 
   const addGameToCartHandler = () => {
-    const gameIsFounded = cart.find((item) => +item.id === +currentGame.id)
-
     if (gameIsFounded) {
-      dispatch(removeFromCart(currentGame.id))
+      dispatch(removeFromCart(game.id))
     } else {
-      dispatch(addToCart(currentGame))
+      dispatch(setCurrentGame(game))
+      dispatch(addToCart(game))
     }
   }
 

@@ -5,7 +5,7 @@ import PageTop from '../../components/UI/PageTop'
 import './game-page.scss'
 
 function GamePage() {
-	const currentGame = useSelector(currentGameSelector)
+  const game = useSelector(currentGameSelector)
 
   return (
     <section className="game-page">
@@ -33,7 +33,7 @@ function GamePage() {
             <li>Жанр</li>
           </ul>
           <div className="game-page__content-right_btn">
-            <InCartBtn />
+            <InCartBtn game={game} />
           </div>
         </div>
       </div>

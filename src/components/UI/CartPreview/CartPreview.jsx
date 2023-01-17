@@ -31,7 +31,7 @@ function CartPreview() {
       {cart.length > 0 ? (
         <ul className="cart-preview__list">
           {cart.map((game) => (
-            <CartPreviewItem {...game} key={game.id} />
+            <CartPreviewItem game={game} key={game.id} />
           ))}
         </ul>
       ) : (
