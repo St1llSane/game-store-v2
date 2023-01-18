@@ -1,11 +1,15 @@
 @import '../../styles/vars.scss';
 
 .game-page {
+  margin-bottom: 60px;
+
   &__content {
     display: grid;
     grid-template-columns: 735px 360px;
+    grid-template-rows: auto;
     justify-content: space-between;
     column-gap: 30px;
+    margin-bottom: 35px;
 
     &-left {
       &_video {
@@ -26,10 +30,10 @@
             z-index: 14;
           }
 
-					&:hover svg {
-						color: $c-light-orange;
-						scale: 1.2;
-					}
+          &:hover svg {
+            color: $c-light-orange;
+            scale: 1.2;
+          }
 
           &::after,
           button,
@@ -44,14 +48,14 @@
           img {
             width: 100%;
             height: 100%;
-						object-fit: cover;
+            object-fit: cover;
           }
 
           svg {
             color: $c-white;
             font-size: 4rem;
             z-index: 15;
-						transition: all .2s ease;
+            transition: all 0.2s ease;
           }
         }
       }
@@ -81,9 +85,12 @@
         padding: 15px 15px 20px 15px;
       }
 
-      &_descr {
-        font-size: $f-small;
-        margin-bottom: 5px;
+      &_info {
+        font-size: $f-def;
+
+        li:not(:last-child) {
+          margin-bottom: 10px;
+        }
       }
 
       &_genres {
@@ -121,6 +128,16 @@
           font-size: $f-medium;
         }
       }
+    }
+  }
+
+  &__desc {
+		li {
+			line-height: 1.44;
+		}
+
+    li:not(:last-child) {
+      margin-bottom: 15px;
     }
   }
 }
