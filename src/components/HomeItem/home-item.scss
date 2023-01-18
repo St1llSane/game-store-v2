@@ -1,10 +1,10 @@
 @import '../../styles/vars.scss';
 
 .home-item {
-  border: 1px solid #202124;
+  border: 1px solid $c-medium-blue;
   border-radius: $b-radius-def;
   background-color: $c-medium-blue;
-  box-shadow: 0 3px 17px #222425;
+  box-shadow: 0 3px 17px $c-medium-blue;
   position: relative;
 
   &__img {
@@ -46,7 +46,7 @@
         transition: background-color 0.1s ease;
 
         &:hover {
-          background-color: #454749;
+          background-color: $c-extra-light;
         }
       }
     }
@@ -61,7 +61,7 @@
         color: $c-dark-blue;
         font-weight: 600;
         height: 24px;
-        background-color: #fff;
+        background-color: $c-white;
         padding: 0 6px;
         border-radius: $b-radius-def;
         display: flex;

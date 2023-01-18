@@ -3,6 +3,7 @@ import { cartSelector } from '../../redux/slices/cartGamesSlice'
 import PageTop from '../../components/UI/PageTop/PageTop'
 import CartTotal from '../../components/UI/CartTotal'
 import CartItem from '../../components/CartItem'
+import CartEmpty from '../../components/UI/CartEmpty'
 import './cart.scss'
 
 function Cart() {
@@ -20,10 +21,7 @@ function Cart() {
         {cartGames.length > 0 ? <CartTotal /> : null}
       </div>
       {cartGames.length == 0 ? (
-        <div className="cart__empty">
-          <img src="images/empty-box.png" width={230} alt="empty-box" />
-          <span>{`Корзина пуста :(`}</span>
-        </div>
+        <CartEmpty />
       ) : null}
     </div>
   )

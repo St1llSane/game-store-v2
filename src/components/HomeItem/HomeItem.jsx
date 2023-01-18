@@ -22,9 +22,7 @@ function HomeItem({ game }) {
         <h3 className="home-item__content-title">{game.name}</h3>
         <ul className="home-item__content-genres">
           {game.genres.map((genre) => (
-            <li key={genre}>
-              <button>{genre}</button>
-            </li>
+            <li key={genre}>{genre}</li>
           ))}
         </ul>
         <div className="home-item__content-buy">

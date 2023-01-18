@@ -9,6 +9,7 @@ import {
 import './cart-preview.scss'
 import CartPreviewItem from '../CartPreviewItem'
 import CartTotal from '../UI/CartTotal'
+import CartEmpty from '../UI/CartEmpty'
 
 function CartPreview() {
   const dispatch = useDispatch()
@@ -40,10 +41,7 @@ function CartPreview() {
           ))}
         </ul>
       ) : (
-        <div className="cart-preview__empty">
-          <img src="images/empty-box.png" width={120} alt="empty-cart" />
-          <span>{`Корзина пуста :(`}</span>
-        </div>
+        <CartEmpty />
       )}
       <CartTotal>
         <span>

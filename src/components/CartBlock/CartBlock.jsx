@@ -6,26 +6,17 @@ import {
   isVisibleSelector,
   setIsVisible,
 } from '../../redux/slices/cartPreviewSlice'
-import {
-  currentGameSelector,
-  resetCurrentGame,
-} from '../../redux/slices/gamesSlice'
 import CartPreview from '../CartPreview'
 import './cart-block.scss'
 
 function CartBlock() {
   const dispatch = useDispatch()
-  const currentGame = useSelector(currentGameSelector)
   const gamesInCart = useSelector(cartSelector)
   const isCartPreviewVisible = useSelector(isVisibleSelector)
   const cartBlockRef = useRef(null)
 
   const onCartClickHandler = () => {
     dispatch(setIsVisible(!isCartPreviewVisible))
-    if (currentGame) {
-      dispatch(resetCurrentGame())
-    }
-    return
   }
   useEffect(() => {
     const outsideCartPreviewClick = (e) => {

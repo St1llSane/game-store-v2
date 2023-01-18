@@ -22,7 +22,7 @@ function GamePage() {
 			></iframe> */}
         </div>
         <div className="game-page__content-right">
-          <h4 className="game-page__content-right_name">Name</h4>
+          <h4 className="game-page__content-right_name">{game.name}</h4>
           <p className="game-page__content-right_descr">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
             temporibus harum voluptatibus nihil quia sit atque et beatae
@@ -30,9 +30,12 @@ function GamePage() {
           </p>
           <ul className="game-page__content-right_genres">
             <h6>Жанры:</h6>
-            <li>Жанр</li>
+            {game.genres.map((genre) => (
+              <li key={genre}>{genre}</li>
+            ))}
           </ul>
-          <div className="game-page__content-right_btn">
+          <div className="game-page__content-right_bottom">
+						<span>{game.price} рублей</span>
             <InCartBtn game={game} />
           </div>
         </div>
