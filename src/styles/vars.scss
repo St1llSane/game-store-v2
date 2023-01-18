@@ -55,3 +55,17 @@ $b-radius-big: 20px;
     background-color: rgba(0, 0, 0, 0.7);
   }
 }
+
+%genre-label {
+  font-size: $f-small;
+  background-color: $c-extra-light;
+  border-radius: $b-radius-small;
+  padding: 2px 8px;
+}
+
+%cost-label {
+  color: $c-dark-blue;
+  font-weight: 600;
+  background-color: $c-white;
+  border-radius: $b-radius-def;
+}

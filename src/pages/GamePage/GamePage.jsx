@@ -35,7 +35,7 @@ function GamePage() {
             ))}
           </ul>
           <div className="game-page__content-right_bottom">
-						<span>{game.price} рублей</span>
+						<span>{game.price} руб.</span>
             <InCartBtn game={game} />
           </div>
         </div>
