@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { IoArrowUndoOutline } from 'react-icons/io5'
 import { useDispatch } from 'react-redux'
-import { resetCurrentGame } from '../../../redux/slices/gamesSlice'
+import { resetCurrentGame } from '../../../redux/slices/currentGameSlice'
 import './page-top.scss'
 
 function PageTop({ children }) {

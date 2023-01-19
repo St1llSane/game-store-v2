@@ -4,7 +4,7 @@ import { SlWallet } from 'react-icons/sl'
 import {
   currentGameSelector,
   resetCurrentGame,
-} from '../../redux/slices/gamesSlice'
+} from '../../redux/slices/currentGameSlice'
 import SearchInput from '../UI/SearchInput/SearchInput'
 import CartBlock from '../CartBlock/CartBlock'
 import './header.scss'

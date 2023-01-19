@@ -1,7 +1,7 @@
 import { BiSearchAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setCurrentGame } from '../../redux/slices/gamesSlice'
+import { setCurrentGame } from '../../redux/slices/currentGameSlice'
 import './home-item.scss'
 import InCartBtn from '../UI/InCartBtn'
 

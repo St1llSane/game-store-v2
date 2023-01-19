@@ -13,21 +13,23 @@ import storage from 'redux-persist/lib/storage'
 import gamesSlice from './slices/gamesSlice'
 import searchGamesSlice from './slices/searchGamesSlice'
 import cartPreviewSlice from './slices/cartPreviewSlice'
-import cartGamesSlice from './slices/cartGamesSlice'
 import filtersSlice from './slices/filtersSlice'
+import cartGamesSlice from './slices/cartGamesSlice'
+import currentGameSlice from './slices/currentGameSlice'
 
 const rootReducer = combineReducers({
   gamesSlice,
   searchGamesSlice,
   cartPreviewSlice,
-  cartGamesSlice,
   filtersSlice,
+  cartGamesSlice,
+  currentGameSlice,
 })
 
 const persistConfig = {
   key: 'root',
   storage,
-	whitelist: ['gamesSlice', 'cartGamesSlice']
+  whitelist: ['cartGamesSlice', 'currentGameSlice'],
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)

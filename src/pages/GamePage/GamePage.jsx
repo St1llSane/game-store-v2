@@ -1,6 +1,6 @@
 import { FaPlay } from 'react-icons/fa'
 import { useSelector } from 'react-redux'
-import { currentGameSelector } from '../../redux/slices/gamesSlice'
+import { currentGameSelector } from '../../redux/slices/currentGameSlice'
 import InCartBtn from '../../components/UI/InCartBtn'
 import PageTop from '../../components/UI/PageTop'
 import './game-page.scss'

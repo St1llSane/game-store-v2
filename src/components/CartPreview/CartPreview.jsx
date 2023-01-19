@@ -5,7 +5,7 @@ import { cartSelector } from '../../redux/slices/cartGamesSlice'
 import {
   currentGameSelector,
   resetCurrentGame,
-} from '../../redux/slices/gamesSlice'
+} from '../../redux/slices/currentGameSlice'
 import './cart-preview.scss'
 import CartPreviewItem from '../CartPreviewItem'
 import CartTotal from '../UI/CartTotal'

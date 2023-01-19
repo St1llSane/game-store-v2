@@ -4,7 +4,7 @@ import {
   addToCart,
   removeFromCart,
 } from '../../../redux/slices/cartGamesSlice'
-import { setCurrentGame } from '../../../redux/slices/gamesSlice'
+import { setCurrentGame } from '../../../redux/slices/currentGameSlice'
 import './in-cart-btn.scss'
 
 function InCartBtn({ game }) {

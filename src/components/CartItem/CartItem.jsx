@@ -2,7 +2,7 @@ import { BiSearchAlt } from 'react-icons/bi'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { removeFromCart } from '../../redux/slices/cartGamesSlice'
-import { setCurrentGame } from '../../redux/slices/gamesSlice'
+import { setCurrentGame } from '../../redux/slices/currentGameSlice'
 import './cart-item.scss'
 
 function CartItem({ game }) {
