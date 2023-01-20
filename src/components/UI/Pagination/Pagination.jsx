@@ -9,7 +9,7 @@ import './pagination.scss'
 function Pagination() {
   const dispatch = useDispatch()
   const { games } = useSelector(gamesSelector)
-  const { gamesPerPage } = useSelector(paginationSelector)
+  const { currentPage, gamesPerPage } = useSelector(paginationSelector)
   const pagesNumbers = []
 
   for (let i = 1; i <= Math.ceil(games.length / gamesPerPage); i++) {
@@ -19,8 +19,16 @@ function Pagination() {
   return (
     <ul className="pagination">
       {pagesNumbers.map((number) => (
-        <li key={number} onClick={() => dispatch(setCurrentPage(number))}>
-          {number}
+        <li className="pagination__item" key={number}>
+          <a
+            href="#"
+            className={`pagination__item-link ${
+              currentPage === number ? 'pagination__item-link--active' : ''
+            }`}
+            onClick={() => dispatch(setCurrentPage(number))}
+          >
+            {number}
+          </a>
         </li>
       ))}
     </ul>

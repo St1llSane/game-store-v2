@@ -2,9 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   currentPage: 1,
-  gamesPerPage: 3,
-  lastGameOnPageIndex: 1,
-  firstGameOnPageIndex: 3,
+  gamesPerPage: 9,
+  lastGameOnPageIndex: null,
+  firstGameOnPageIndex: null,
 }
 
 const paginationSlice = createSlice({
