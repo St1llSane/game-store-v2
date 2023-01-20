@@ -1,6 +1,7 @@
 import debounce from 'lodash.debounce'
 import { useCallback, useRef, useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { setCurrentPage } from '../../../redux/slices/paginationSlice'
 import {
   resetSearchGames,
   setSearchGames,
@@ -15,6 +16,7 @@ function SearchInput() {
   const searchDebounce = useCallback(
     debounce((value) => {
       dispatch(setSearchGames(value))
+      dispatch(setCurrentPage(1))
     }, 800),
     []
   )

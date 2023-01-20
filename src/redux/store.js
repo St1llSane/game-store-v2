@@ -16,6 +16,7 @@ import cartPreviewSlice from './slices/cartPreviewSlice'
 import filtersSlice from './slices/filtersSlice'
 import cartGamesSlice from './slices/cartGamesSlice'
 import currentGameSlice from './slices/currentGameSlice'
+import paginationSlice from './slices/paginationSlice'
 
 const rootReducer = combineReducers({
   gamesSlice,
@@ -24,6 +25,7 @@ const rootReducer = combineReducers({
   filtersSlice,
   cartGamesSlice,
   currentGameSlice,
+	paginationSlice
 })
 
 const persistConfig = {
