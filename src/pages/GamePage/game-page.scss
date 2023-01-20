@@ -88,6 +88,10 @@
       &_info {
         font-size: $f-def;
 
+				li {
+					line-height: 1.4;
+				}
+
         li:not(:last-child) {
           margin-bottom: 10px;
         }
@@ -99,7 +103,7 @@
         align-items: center;
         row-gap: 9px;
         column-gap: 10px;
-        margin-bottom: 15px;
+        margin-bottom: 12px;
 
         h6 {
           font-size: $f-def;
@@ -133,7 +137,7 @@
 
   &__desc {
 		li {
-			line-height: 1.44;
+			line-height: 1.45;
 		}
 
     li:not(:last-child) {
