@@ -20,6 +20,16 @@ function Filters() {
       icon: <HiArrowNarrowDown />,
       filterProp: '&sortBy=price&order=asc',
     },
+    {
+      name: 'Популярное',
+      icon: <HiArrowNarrowUp />,
+      filterProp: '&sortBy=popularity&order=desc',
+    },
+    {
+      name: 'Непопулярное',
+      icon: <HiArrowNarrowDown />,
+      filterProp: '&sortBy=popularity&order=asc',
+    },
   ]
   const activeFilter = useSelector(activeFilterSelector)
 

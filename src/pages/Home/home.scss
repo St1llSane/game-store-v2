@@ -1,7 +1,8 @@
 .home {
 	display: grid;
   grid-template-columns: 920px 185px;
-  column-gap: 30px;
+	justify-content: space-between;
+  column-gap: 20px;
 	row-gap: 40px;
   margin-bottom: 50px;
 
