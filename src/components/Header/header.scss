@@ -43,6 +43,11 @@
 
 @media (max-width: 1200px) {
 	.header {
+		gap: 28px;
 		margin-bottom: 20px;
+
+		&__right {
+			column-gap: 35px;
+		}
 	}
 }

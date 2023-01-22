@@ -1,43 +1,47 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   HiArrowNarrowUp,
   HiArrowNarrowDown,
   HiAdjustments,
 } from 'react-icons/hi'
 import { useDispatch, useSelector } from 'react-redux'
+import { setIsFiltersVisible } from '../../redux/slices/filtersSlice'
 import {
   activeFilterSelector,
   resetFilters,
   setActiveFilter,
+  visibilityFiltersSelector,
 } from '../../redux/slices/filtersSlice'
 import './filters.scss'
+
+const filterItems = [
+  {
+    name: 'Дороже',
+    icon: <HiArrowNarrowUp />,
+    filterProp: '&sortBy=price&order=desc',
+  },
+  {
+    name: 'Дешевле',
+    icon: <HiArrowNarrowDown />,
+    filterProp: '&sortBy=price&order=asc',
+  },
+  {
+    name: 'Популярное',
+    icon: <HiArrowNarrowUp />,
+    filterProp: '&sortBy=popularity&order=desc',
+  },
+  {
+    name: 'Непопулярное',
+    icon: <HiArrowNarrowDown />,
+    filterProp: '&sortBy=popularity&order=asc',
+  },
+]
 
 function Filters() {
   const dispatch = useDispatch()
   const [isMediumScreen, setIsMediumScreen] = useState(false)
-  const filterItems = [
-    {
-      name: 'Дороже',
-      icon: <HiArrowNarrowUp />,
-      filterProp: '&sortBy=price&order=desc',
-    },
-    {
-      name: 'Дешевле',
-      icon: <HiArrowNarrowDown />,
-      filterProp: '&sortBy=price&order=asc',
-    },
-    {
-      name: 'Популярное',
-      icon: <HiArrowNarrowUp />,
-      filterProp: '&sortBy=popularity&order=desc',
-    },
-    {
-      name: 'Непопулярное',
-      icon: <HiArrowNarrowDown />,
-      filterProp: '&sortBy=popularity&order=asc',
-    },
-  ]
   const activeFilter = useSelector(activeFilterSelector)
+  const isFiltersVisible = useSelector(visibilityFiltersSelector)
 
   const setActiveFilterHandler = (filter) => {
     const { icon, ...filterCopy } = filter
@@ -49,6 +53,8 @@ function Filters() {
   }
 
   useEffect(() => {
+    dispatch(setIsFiltersVisible(false))
+
     function resizeScreenHandler() {
       if (window.innerWidth <= 1200) {
         setIsMediumScreen(true)
@@ -62,17 +68,21 @@ function Filters() {
     return () => window.removeEventListener('resize', resizeScreenHandler)
   }, [])
 
+  const filtersToggleBtnHandler = () => {
+    dispatch(setIsFiltersVisible(!isFiltersVisible))
+  }
+
   return (
     <div className="filters">
       {isMediumScreen ? (
         <div className="filters__toggle">
-          <button>
+          <button onClick={filtersToggleBtnHandler}>
             <HiAdjustments />
           </button>
           <h2>Фильтры</h2>
         </div>
       ) : null}
-      <div className="filters__wrapper">
+      <div className={`filters__wrapper ${isFiltersVisible ? '' : 'hidden'}`}>
         <h3 className="filters__title">Фильтры</h3>
         <ul className="filters__list">
           <li className="filters__list-item">
