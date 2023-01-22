@@ -14,7 +14,7 @@ function PageTop({ children }) {
           <IoArrowUndoOutline />
         </button>
       </Link>
-      <div className="page-top__text">{children}</div>
+      <h2 className="page-top__text">{children}</h2>
     </div>
   )
 }
