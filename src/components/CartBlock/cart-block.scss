@@ -1,33 +1,43 @@
 @import '../../styles/vars.scss';
 
 .cart-block {
-	font-size: $f-medium;
-	position: relative;
+  font-size: $f-medium;
+  position: relative;
 
-	&__btn {
-		font-size: 2.9rem;
-		display: flex;
-		position: relative;
-		transition: color 0.1s ease;
+  &__btn {
+    font-size: 2.9rem;
+    display: flex;
+    position: relative;
+    transition: color 0.1s ease;
 
-		&:hover {
-			color: $c-light-orange;
-		}
+    &:hover {
+      color: $c-light-orange;
+    }
 
-		span {
-			position: absolute;
-			top: -8px;
-			right: -12px;
-			width: 22px;
-			height: 22px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			color: #fff;
-			font-size: $f-small;
-			background-color: $c-orange;
-			border-radius: $b-radius-big;
-			z-index: 10;
-		}
-	}
+    span {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      width: 22px;
+      height: 22px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: $f-small;
+      background-color: $c-orange;
+      border-radius: $b-radius-big;
+      z-index: 10;
+    }
+  }
+}
+
+@media (hover: none) {
+  .cart-block {
+    &__btn {
+      &:hover {
+        color: $c-white;
+      }
+    }
+  }
 }

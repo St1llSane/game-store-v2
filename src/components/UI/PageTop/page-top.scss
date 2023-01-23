@@ -39,3 +39,34 @@
     text-transform: uppercase;
   }
 }
+
+@media (max-width: 930px) {
+	.page-top {
+		gap: 16px;
+		margin-bottom: 30px;
+
+		&__btn {
+			width: 30px;
+			height: 30px;
+			margin-bottom: 1px;
+		}
+
+		&__text {
+			font-size: $f-big;
+		}
+	}
+}
+
+@media (hover: none) {
+	.page-top {	
+		&__btn {
+			&:hover {
+				border-color: #4c5053;
+			}
+	
+			&:hover svg {
+				color: #62676b;
+			}
+		}
+	}
+}

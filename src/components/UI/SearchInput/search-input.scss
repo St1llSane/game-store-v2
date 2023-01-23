@@ -55,3 +55,26 @@
     }
   }
 }
+
+@media (max-width: 930px) {
+  .search-input {
+    max-width: 265px;
+
+    &__field {
+      height: 38px;
+    }
+  }
+}
+
+@media (max-width: 796px) {
+  .search-input {
+		max-width: 300px;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 570px) {
+	.search-input {
+		order: 1;
+	}
+}

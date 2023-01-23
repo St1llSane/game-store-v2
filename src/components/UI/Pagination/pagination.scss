@@ -1,8 +1,8 @@
 @import '../../../styles/vars.scss';
 
 .pagination {
-	width: 100%;
-	max-width: 100%;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: center;
   gap: 7px;
@@ -19,12 +19,35 @@
       transition: background-color 0.1s ease;
 
       &--active {
-				font-weight: 700;
+        font-weight: 700;
         background-color: $c-extra-light;
       }
 
       &:hover {
         background-color: $c-extra-light;
+      }
+    }
+  }
+}
+
+@media (max-width: 930px) {
+  .pagination {
+    &__item {
+      &-link {
+        width: 32px;
+        height: 32px;
+      }
+    }
+  }
+}
+
+@media (hover: none) {
+  .pagination {
+    &__item {
+      &-link {
+        &:hover {
+          background-color: transparent;
+        }
       }
     }
   }

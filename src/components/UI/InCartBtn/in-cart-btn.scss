@@ -8,7 +8,7 @@
   border-radius: $b-radius-def;
   display: flex;
   align-items: center;
-  height: 3.5rem;
+  height: 35px;
   background: $c-blue-gradient;
   box-shadow: 0 1px 10px $c-blue;
   transition: box-shadow 0.1s ease;
@@ -25,4 +25,26 @@
       box-shadow: 0 1px 15px #29ac3a;
     }
   }
+}
+
+@media (max-width: 930px) {
+	.in-cart-btn {
+		font-size: $f-small;
+		padding: 0 10px;
+		height: 31px;
+	}
+}
+
+@media (hover: none) {
+	.in-cart-btn {
+		&:hover {
+			box-shadow: 0 1px 10px $c-blue;
+		}
+
+		&--active {
+			&:hover {
+				box-shadow: 0 1px 10px #27a138;
+			}
+		}
+	}
 }

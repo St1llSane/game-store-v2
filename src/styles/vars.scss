@@ -8,6 +8,7 @@ $c-light-orange: #e77f6c;
 $c-blue: #3e54b4;
 $c-blue-gradient: linear-gradient(45deg, #415cd1, #324bb9);
 
+$f-tiny: 1.4rem;
 $f-small: 1.6rem;
 $f-def: 1.8rem;
 $f-medium: 2rem;
@@ -68,4 +69,14 @@ $b-radius-big: 50px;
   font-weight: 600;
   background-color: $c-white;
   border-radius: $b-radius-def;
+}
+
+@media (hover: none) {
+	%gameImgHover {	
+		&:hover::after,
+		&:hover svg {
+			visibility: hidden;
+			opacity: 0;
+		}
+	}
 }
