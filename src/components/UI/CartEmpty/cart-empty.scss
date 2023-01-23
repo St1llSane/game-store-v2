@@ -12,3 +12,12 @@
     display: block;
   }
 }
+
+@media (max-width: 1200px) {
+	.cart-empty {
+		
+		img {
+			margin-bottom: 10px;
+		}
+	}
+}

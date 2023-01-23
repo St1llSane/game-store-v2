@@ -4,6 +4,7 @@
   margin: 0 4px;
   margin-top: 5px;
   max-width: 440px;
+
   &__info {
     &-item {
       display: flex;
@@ -48,4 +49,17 @@
       }
     }
   }
+}
+
+@media (max-width: 1200px) {
+	.cart-total {
+		span {
+			margin-right: 0; 
+			
+			a {
+				border-radius: 3px;
+				margin: 0 auto;
+			}
+		}
+	}
 }

@@ -92,3 +92,20 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .cart-preview {
+		width: 285px;
+
+    .cart-empty {
+
+      img {
+        width: 100px;
+      }
+
+			span {
+				font-size: $f-def;
+			}
+    }
+  }
+}

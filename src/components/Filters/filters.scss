@@ -74,16 +74,16 @@
 
 @media (max-width: 1200px) {
   .filters {
-		position: relative;
-		
-		&__toggle {
-			display: flex;
+    position: relative;
+
+    &__toggle {
+      display: flex;
       align-items: center;
       gap: 20px;
       text-transform: uppercase;
-			
+
       button {
-				color: $c-white;
+        color: $c-white;
         font-size: 2.8rem;
         width: 40px;
         height: 40px;
@@ -100,17 +100,18 @@
     }
 
     &__wrapper {
-			position: absolute;
-			top: 50px;
-			left: 0;
-			z-index: 100;
-			min-height: 258px;
-			background-color: $c-medium-blue;
-			border: 1px solid $c-white;
-			animation: fade .2s ease 1;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      z-index: 100;
+      min-height: 258px;
+      background-color: $c-medium-blue;
+      border: 1px solid $c-white;
+      border-radius: 12px;
+      animation: fade 0.2s ease 1;
 
       &.hidden {
-				opacity: 0;
+        opacity: 0;
         display: none;
       }
     }
@@ -121,25 +122,24 @@
 
     &__list {
       &-item {
-				&:first-child {
-					margin-left: 4px;
-					margin-bottom: 12px;
-				}
+        &:first-child {
+          margin-bottom: 12px;
+        }
 
         &_btn {
           justify-content: flex-start;
-					padding: 10px 8px;
+          padding: 10px 8px;
         }
       }
     }
   }
 
-	@keyframes fade {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
 }
