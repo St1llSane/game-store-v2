@@ -4,12 +4,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 25px;
   padding: 13px 25px;
-  border-top: 2px solid #35383a;
+  border-top: 2px solid $c-light-grey;
   border-radius: 2px;
 
   &:last-child {
-    border-bottom: 2px solid #35383a;
+    border-bottom: 2px solid $c-light-grey;
   }
 
   &__left {
@@ -19,10 +20,13 @@
 
     &-img {
       display: flex;
-      border-radius: 12px;
+      border-radius: $b-radius-small;
       @extend %gameImgHover;
 
       img {
+        width: 100%;
+        max-width: 205px;
+        height: 116px;
         object-fit: cover;
       }
     }
@@ -33,24 +37,107 @@
 
     &-name {
       font-size: $f-big;
-      word-break: break-all;
       margin-bottom: 20px;
     }
 
     &-price {
-      font-size: $f-def
+      font-size: $f-def;
     }
   }
 
   &__right {
     button {
-      color: #f36b6b;
-      border-bottom: 2px solid #f36b6b;
+      color: $c-light-orange;
+      font-size: $f-medium;
+      border-bottom: 2px solid $c-light-orange;
       transition: all 0.1s ease;
 
       &:hover {
-        color: #df4848;
-        border-color: #df4848;
+        color: $c-orange;
+        border-color: $c-orange;
+      }
+    }
+  }
+}
+
+@media (max-width: 796px) {
+  .cart-item {
+		column-gap: 18px;
+    padding: 8px 18px;
+
+    &__left {
+      gap: 15px;
+
+      &-img {
+        max-width: 180px;
+				
+				img {
+					height: 105px;
+				}
+      }
+    }
+
+    &__content {
+      &-name {
+        font-size: $f-medium;
+				margin-bottom: 12px;
+      }
+    }
+
+    &__right {
+      button {
+        font-size: $f-def;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 570px) {
+	.cart-item {
+		flex-wrap: wrap;
+		row-gap: 14px;
+
+		&__left {
+			width: 100%;
+		}
+
+		&__right {
+			width: 100%;
+			text-align: center;
+		}
+	}
+}
+
+@media (max-width: 490px) {
+	.cart-item {
+		padding: 8px 0;
+
+    &__left {
+      &-img {
+				min-width: 100px;
+
+				img {			
+					width: 100px;
+					height: 85px;
+				}
+      }
+    }
+
+    &__content {
+      &-name {
+				font-size: $f-def;
+				margin-bottom: 4px;
+      }
+
+			&-price {
+				font-size: $f-small;
+			}
+    }
+
+    &__right {
+      button {
+        font-size: $f-small;
       }
     }
   }

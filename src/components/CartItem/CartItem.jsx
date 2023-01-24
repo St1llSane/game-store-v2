@@ -21,7 +21,7 @@ function CartItem({ game }) {
           onClick={() => dispatch(setCurrentGame(game))}
         >
           <BiSearchAlt />
-          <img src={game.img} alt="item-img" width={205} height={116} />
+          <img src={game.img} alt="item-img" />
         </Link>
         <div className="cart-item__content">
           <h4 className="cart-item__content-name">{game.name}</h4>
