@@ -109,3 +109,16 @@
     }
   }
 }
+
+@media (max-width: 570px) {
+	.cart-preview {
+		left: -44px;
+		transform: translateX(0);
+
+		&::before {
+			top: -8px;
+			left: 49px;
+			transform: translateX(0);
+		}
+	}
+}
