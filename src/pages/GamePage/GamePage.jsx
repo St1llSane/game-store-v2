@@ -18,24 +18,22 @@ function GamePage() {
     <section className="game-page">
       <PageTop>{game.name}</PageTop>
       <div className="game-page__content">
-        <div className="game-page__content-left">
-          <div className="game-page__content-left_video">
-            {isVideoPlaying ? (
-              <iframe
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                src={`${game.video}?autoplay=1&mute=1`}
-                title="YouTube video player"
-                allowFullScreen
-              ></iframe>
-            ) : (
-              <button onClick={playVideoHandler}>
-                <img src={game.img} alt="game-video-img" />
-                <FaPlay />
-              </button>
-            )}
-          </div>
+        <div className="game-page__content-video">
+          {isVideoPlaying ? (
+            <iframe
+              width="100%"
+              height="100%"
+              frameBorder="0"
+              src={`${game.video}?autoplay=1&mute=1`}
+              title="YouTube video player"
+              allowFullScreen
+            ></iframe>
+          ) : (
+            <button onClick={playVideoHandler}>
+              <img src={game.img} alt="game-video-img" />
+              <FaPlay />
+            </button>
+          )}
         </div>
         <div className="game-page__content-right">
           <img

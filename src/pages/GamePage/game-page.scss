@@ -5,16 +5,13 @@
 
   &__content {
     display: grid;
-    grid-template-columns: 735px 360px;
-    grid-template-rows: auto;
+    grid-template-columns: minmax(480px, 735px) 360px;
+    grid-template-rows: 450px;
     justify-content: space-between;
     column-gap: 30px;
     margin-bottom: 35px;
 
-    &-left {
-      &_video {
-        width: 100%;
-        height: 450px;
+      &-video {
         position: relative;
 
         button {
@@ -59,10 +56,8 @@
           }
         }
       }
-    }
 
     &-right {
-      min-height: 450px;
       display: flex;
       flex-direction: column;
       background-color: $c-medium-blue;
@@ -144,4 +139,40 @@
       margin-bottom: 15px;
     }
   }
+}
+
+@media (max-width: 930px) {
+	.game-page {
+		&__content {
+			grid-template-columns: minmax(480px, 735px) 300px;
+			grid-template-rows: 380px;
+			margin-bottom: 30px;
+
+			&-right {
+				&_wrapper {
+					padding: 10px 10px 13px 10px
+				}
+
+				&_img {
+					height: 110px;
+				}
+
+				&_info {
+					li:not(:last-child) {
+						margin-bottom: 6px;
+					}
+				}
+
+				&_bottom {
+					span {
+						
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (hover: none) {
+	
 }

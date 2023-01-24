@@ -66,9 +66,20 @@ $b-radius-big: 50px;
 
 %cost-label {
   color: $c-dark-blue;
+	font-size: $f-def;
   font-weight: 600;
   background-color: $c-white;
   border-radius: $b-radius-def;
+}
+
+@media (max-width: 930px) {
+	%genre-label {
+		font-size: $f-tiny;
+	}
+
+	%cost-label {
+		font-size: $f-small;
+	}
 }
 
 @media (hover: none) {
