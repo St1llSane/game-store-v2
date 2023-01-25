@@ -48,7 +48,7 @@ function Home() {
       ) : status === 'loading' ? (
         <div className="home__wrapper">{renderSkeleton}</div>
       ) : (
-        <div className="home__wrapper">{renderSkeleton}</div>
+        <div className="home__wrapper">{renderGames}</div>
       )}
       <Filters />
       <Pagination />
