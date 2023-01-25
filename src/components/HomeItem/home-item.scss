@@ -85,3 +85,11 @@
     }
   }
 }
+
+@media (max-width: 490px) {
+	.home-item {
+		&__content {
+			min-height: 192px;
+		}
+	}
+}

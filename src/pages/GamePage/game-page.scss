@@ -9,53 +9,54 @@
     grid-template-rows: 450px;
     justify-content: space-between;
     column-gap: 30px;
+    row-gap: 25px;
     margin-bottom: 35px;
 
-      &-video {
-        position: relative;
+    &-video {
+      position: relative;
 
-        button {
+      button {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &::after {
+          content: '';
+          background-color: rgba(0, 0, 0, 0.6);
+          z-index: 14;
+        }
+
+        &:hover svg {
+          color: $c-light-orange;
+          scale: 1.2;
+        }
+
+        &::after,
+        button,
+        img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          right: 0;
+          bottom: 0;
+        }
+
+        img {
           width: 100%;
           height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          object-fit: cover;
+        }
 
-          &::after {
-            content: '';
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 14;
-          }
-
-          &:hover svg {
-            color: $c-light-orange;
-            scale: 1.2;
-          }
-
-          &::after,
-          button,
-          img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-          }
-
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-
-          svg {
-            color: $c-white;
-            font-size: 4rem;
-            z-index: 15;
-            transition: all 0.2s ease;
-          }
+        svg {
+          color: $c-white;
+          font-size: 4rem;
+          z-index: 15;
+          transition: all 0.2s ease;
         }
       }
+    }
 
     &-right {
       display: flex;
@@ -83,9 +84,9 @@
       &_info {
         font-size: $f-def;
 
-				li {
-					line-height: 1.4;
-				}
+        li {
+          line-height: 1.4;
+        }
 
         li:not(:last-child) {
           margin-bottom: 10px;
@@ -131,9 +132,11 @@
   }
 
   &__desc {
-		li {
-			line-height: 1.45;
-		}
+    grid-column: 1 / -1;
+
+    li {
+      line-height: 1.45;
+    }
 
     li:not(:last-child) {
       margin-bottom: 15px;
@@ -142,37 +145,106 @@
 }
 
 @media (max-width: 930px) {
-	.game-page {
-		&__content {
-			grid-template-columns: minmax(480px, 735px) 300px;
-			grid-template-rows: 380px;
-			margin-bottom: 30px;
+  .game-page {
+    margin-bottom: 15px;
 
-			&-right {
-				&_wrapper {
-					padding: 10px 10px 13px 10px
-				}
+    &__content {
+      display: unset;
+      margin-bottom: 0;
 
-				&_img {
-					height: 110px;
-				}
+      &-video {
+        height: 380px;
+        margin-bottom: 25px;
+      }
 
-				&_info {
-					li:not(:last-child) {
-						margin-bottom: 6px;
-					}
-				}
+      &-right {
+        width: 300px;
+        height: 380px;
+        float: left;
+        margin: 0 20px 10px 0;
 
-				&_bottom {
-					span {
-						
-					}
-				}
-			}
-		}
-	}
+        &_wrapper {
+          padding: 10px 10px 13px 10px;
+        }
+
+        &_img {
+          height: 110px;
+        }
+
+        &_info {
+          li:not(:last-child) {
+            margin-bottom: 6px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .game-page {
+    &__content {
+      &-video {
+        height: 280px;
+      }
+    }
+  }
+}
+
+@media (max-width: 570px) {
+  .game-page {
+    &__content {
+      &-right {
+        width: 100%;
+        height: 400px;
+        float: none;
+        margin: 0 0 20px 0;
+
+        &_img {
+          height: 150px;
+        }
+      }
+    }
+
+    &__desc {
+      li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 490px) {
+  .game-page {
+    &__content {
+      &-video {
+        height: 210px;
+      }
+
+      &-right {
+        height: 430px;
+
+        &_img {
+          height: 140px;
+        }
+      }
+    }
+
+    &__desc {
+      li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
 }
 
 @media (hover: none) {
-	
+  .game-page__content-video {
+    button {
+      &:hover svg {
+        color: $c-white;
+        scale: 1;
+      }
+    }
+  }
 }

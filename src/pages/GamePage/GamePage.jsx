@@ -62,12 +62,12 @@ function GamePage() {
             </div>
           </div>
         </div>
+        <ul className="game-page__desc">
+          {game.descr.map((text) => (
+            <li key={text}>{text}</li>
+          ))}
+        </ul>
       </div>
-      <ul className="game-page__desc">
-        {game.descr.map((text) => (
-          <li key={text}>{text}</li>
-        ))}
-      </ul>
     </section>
   )
 }
