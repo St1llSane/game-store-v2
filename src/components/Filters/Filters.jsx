@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react'
 import {
   HiArrowNarrowUp,
   HiArrowNarrowDown,
@@ -39,7 +38,6 @@ const filterItems = [
 
 function Filters() {
   const dispatch = useDispatch()
-  const [isMediumScreen, setIsMediumScreen] = useState(false)
   const activeFilter = useSelector(activeFilterSelector)
   const isFiltersVisible = useSelector(visibilityFiltersSelector)
 
@@ -52,36 +50,19 @@ function Filters() {
     dispatch(resetFilters())
   }
 
-  useEffect(() => {
-    dispatch(setIsFiltersVisible(false))
-
-    function resizeScreenHandler() {
-      if (window.innerWidth <= 1200) {
-        setIsMediumScreen(true)
-      } else {
-        setIsMediumScreen(false)
-      }
-    }
-    resizeScreenHandler()
-
-    window.addEventListener('resize', resizeScreenHandler)
-    return () => window.removeEventListener('resize', resizeScreenHandler)
-  }, [])
-
   const filtersToggleBtnHandler = () => {
     dispatch(setIsFiltersVisible(!isFiltersVisible))
   }
 
   return (
     <div className="filters">
-      {isMediumScreen ? (
-        <div className="filters__toggle">
-          <button onClick={filtersToggleBtnHandler}>
-            <HiAdjustments />
-          </button>
-          <h2>Фильтры</h2>
-        </div>
-      ) : null}
+      <div className="filters__toggle">
+        <button onClick={filtersToggleBtnHandler}>
+          <HiAdjustments />
+        </button>
+        <h2>Фильтры</h2>
+      </div>
+
       <div className={`filters__wrapper ${isFiltersVisible ? '' : 'hidden'}`}>
         <h3 className="filters__title">Фильтры</h3>
         <ul className="filters__list">
