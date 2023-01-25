@@ -5,8 +5,8 @@ import {
   currentGameSelector,
   resetCurrentGame,
 } from '../../redux/slices/currentGameSlice'
-import SearchInput from '../UI/SearchInput/SearchInput'
-import CartBlock from '../CartBlock/CartBlock'
+import SearchInput from '../UI/SearchInput'
+import CartBlock from '../CartBlock'
 import './header.scss'
 
 function Header() {

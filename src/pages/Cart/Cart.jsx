@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux'
 import { cartSelector } from '../../redux/slices/cartGamesSlice'
-import PageTop from '../../components/UI/PageTop/PageTop'
+import PageTop from '../../components/UI/PageTop'
 import CartTotal from '../../components/UI/CartTotal'
 import CartItem from '../../components/CartItem'
 import CartEmpty from '../../components/UI/CartEmpty'
