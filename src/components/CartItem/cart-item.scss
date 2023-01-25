@@ -19,15 +19,15 @@
     gap: 25px;
 
     &-img {
+			min-width: 205px;
       display: flex;
       border-radius: $b-radius-small;
       @extend %gameImgHover;
-
+			
       img {
-        width: 100%;
-        max-width: 205px;
+        width: 205px;
         height: 116px;
-        object-fit: cover;
+				object-fit: cover;
       }
     }
   }
@@ -95,41 +95,65 @@
 
 @media (max-width: 570px) {
 	.cart-item {
-		flex-wrap: wrap;
-		row-gap: 14px;
+		&__left {			
+			&-img {
+				min-width: 140px;
+				border-radius: 5px;
 
-		&__left {
-			width: 100%;
+				img {			
+					width: 140px;
+					height: 90px;
+				}
+      }
 		}
+
+		&__content {
+      &-name {
+				margin-bottom: 6px;
+      }
+    }
 
 		&__right {
-			width: 100%;
-			text-align: left;
-			margin-left: 18px;
-		}
+      button {
+        font-size: $f-small;
+      }
+    }
 	}
 }
 
 @media (max-width: 490px) {
 	.cart-item {
-		padding: 8px 0;
+		flex-wrap: wrap;
+		padding: 10px 0;
+		justify-content: center;
 
     &__left {
-      &-img {
-				min-width: 100px;
-				border-radius: 5px;
+			flex-wrap: wrap;
+			max-width: 360px;
+			gap: 8px;
 
-				img {			
-					width: 100px;
-					height: 85px;
+      &-img {
+				width: 100%;
+				border-radius: 5px;
+				margin: 0 auto;
+
+				img {		
+					width: 100%;
+					max-width: 100%;				
+					height: 100px;
 				}
       }
     }
 
     &__content {
+			width: 100%;
+			max-width: 100%;
+			text-align: center;
+			margin-bottom: 18px;
+			
       &-name {
 				font-size: $f-def;
-				margin-bottom: 4px;
+				margin-bottom: 8px;
       }
 
 			&-price {
@@ -138,9 +162,8 @@
     }
 
     &__right {
-      button {
-        font-size: $f-small;
-      }
+			width: 100%;
+			text-align: center;
     }
   }
 }
