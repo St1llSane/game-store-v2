@@ -15,23 +15,24 @@ function CartBlock() {
   const isCartPreviewVisible = useSelector(isVisibleSelector)
   const cartBlockRef = useRef(null)
 
+	useEffect(() => {
+		const outsideCartPreviewClick = (e) => {
+			if (!e.composedPath().includes(cartBlockRef.current)) {
+				dispatch(setIsVisible(false))
+			}
+		}
+
+		if (isCartPreviewVisible) {
+			document.body.addEventListener('click', outsideCartPreviewClick)
+		}
+		return () =>
+			document.body.removeEventListener('click', outsideCartPreviewClick)
+	})
+	
   const onCartClickHandler = () => {
     dispatch(setIsVisible(!isCartPreviewVisible))
   }
-  useEffect(() => {
-    const outsideCartPreviewClick = (e) => {
-      if (!e.composedPath().includes(cartBlockRef.current)) {
-        console.log('miss')
-        dispatch(setIsVisible(false))
-      }
-    }
 
-    if (isCartPreviewVisible) {
-      document.body.addEventListener('click', outsideCartPreviewClick)
-    }
-    return () =>
-      document.body.removeEventListener('click', outsideCartPreviewClick)
-  })
 
   return (
     <div className="cart-block" ref={cartBlockRef}>

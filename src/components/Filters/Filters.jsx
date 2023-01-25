@@ -1,3 +1,4 @@
+import { useRef, useEffect } from 'react'
 import {
   HiArrowNarrowUp,
   HiArrowNarrowDown,
@@ -40,6 +41,22 @@ function Filters() {
   const dispatch = useDispatch()
   const activeFilter = useSelector(activeFilterSelector)
   const isFiltersVisible = useSelector(visibilityFiltersSelector)
+  const filtersToggleRef = useRef(null)
+
+  useEffect(() => {
+    const outsideFiltersWrapperClick = (e) => {
+      if (!e.composedPath().includes(filtersToggleRef.current)) {
+        dispatch(setIsFiltersVisible(false))
+        console.log('miss')
+      }
+    }
+
+    if (isFiltersVisible) {
+      document.addEventListener('click', outsideFiltersWrapperClick)
+    }
+    return () =>
+      document.removeEventListener('click', outsideFiltersWrapperClick)
+  })
 
   const setActiveFilterHandler = (filter) => {
     const { icon, ...filterCopy } = filter
@@ -57,12 +74,11 @@ function Filters() {
   return (
     <div className="filters">
       <div className="filters__toggle">
-        <button onClick={filtersToggleBtnHandler}>
+        <button onClick={filtersToggleBtnHandler} ref={filtersToggleRef}>
           <HiAdjustments />
         </button>
         <h2>Фильтры</h2>
       </div>
-
       <div className={`filters__wrapper ${isFiltersVisible ? '' : 'hidden'}`}>
         <h3 className="filters__title">Фильтры</h3>
         <ul className="filters__list">
