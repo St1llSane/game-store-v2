@@ -1,0 +1,29 @@
+@media (max-width: 1200px) {
+  .home-skeleton {
+		width: 100%;
+		max-width: 100%;
+
+    &__pic {
+      width: 100%;
+			max-width: 100%;
+    }
+
+    &__title {
+			width: calc(100% - 25px);
+			max-width: 100%;
+    }
+
+		&__buy {
+			width: calc(100% - 175px);
+			max-width: 100%;
+		}
+  }
+}
+
+@media (max-width: 930px) {
+  .home-skeleton {
+		&__genre {
+			width: 78px;
+		}
+  }
+}
